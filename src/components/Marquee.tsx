@@ -17,10 +17,11 @@ interface IMarqueeItem {
 }
 
 const Marquee = async () => {
-  "use cache";
-
   const res = await fetch(
-    "https://api.abcz.workers.dev/api/bazardor/products"
+    "https://api.abcz.workers.dev/api/bazardor/products",
+      {
+      next: { revalidate: 3600 }, 
+    }
   );
 
   // Check API response

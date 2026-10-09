@@ -6,4 +6,4 @@ const HeaderDate = () => {
   return <p className="text-xs text-gray-500">{date}</p>;
 };
 
-export default HeaderDate;
+export default HeaderDate; 

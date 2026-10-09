@@ -4,7 +4,7 @@ import HeaderDate from "./HeaderDate";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 border-b border-sky-100 bg-sky-50">
+    <header className="border-b border-sky-100 bg-sky-50">
       <div className="container mx-auto flex min-h-14 items-center justify-between px-3 py-1.5 sm:px-4">
         <div className="flex items-center gap-2">
           <Image

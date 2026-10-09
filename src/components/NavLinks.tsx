@@ -21,7 +21,6 @@ const NavLinks = async () => {
 
   return (
     <div className="w-full bg-white shadow-sm">
-      <nav className="sticky top-0 z-50">
         <div className="container mx-auto overflow-x-auto">
           <div className="flex w-max min-w-full gap-2 px-3 py-2">
             {bazarCategory.map((category) => (
@@ -35,7 +34,6 @@ const NavLinks = async () => {
             ))}
           </div>
         </div>
-      </nav>
     </div>
   );
 };
