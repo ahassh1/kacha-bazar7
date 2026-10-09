@@ -4,8 +4,8 @@ import NavLinks from "@/components/NavLinks";
 export default function Home() {
   return (
     <div>
-      <NavLinks />
-        <Marquee />
+      <NavLinks/>
+        <Marquee/>
     </div>
   );
 }
