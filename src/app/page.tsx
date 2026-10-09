@@ -1,10 +1,8 @@
-import AllProduct from "@/components/AllProduct";
+import AllProductApi from "@/components/AllProductApi";
 import Banner from "@/components/Banner";
 import Header from "@/components/Header";
 import Marquee from "@/components/Marquee";
 import NavLinks from "@/components/NavLinks";
-import PriceDecrease from "@/components/PriceDecrease";
-import PriceIncrease from "@/components/PriceIncrease";
 
 export default function Home() {
   return (
@@ -16,9 +14,7 @@ export default function Home() {
         <Marquee/>
         <Banner/>
        <div className="mx-auto container"> 
-         <PriceIncrease/>
-         <PriceDecrease/>
-         <AllProduct/>
+         <AllProductApi/>
        </div>
     </div>
   );

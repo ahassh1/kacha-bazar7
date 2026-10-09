@@ -22,7 +22,7 @@ const Banner = () => {
             দামের পরিবর্তন এক জায়গায়।
           </p>
 
-          <button className="rounded-lg bg-green-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-800 sm:text-base">
+          <button className="cursor-pointer rounded-lg bg-green-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-800 sm:text-base">
             সব পণ্য দেখুন
           </button>
         </div>
