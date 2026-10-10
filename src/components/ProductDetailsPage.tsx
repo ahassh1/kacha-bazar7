@@ -219,8 +219,7 @@ const ProductDetailsPage = ({
               {/* Display sorted market rows */}
               <tbody className="divide-y divide-gray-100">
                 {marketPrices.length > 0 ? (
-                  [...marketPrices]
-                    .map((market) => {
+                  marketPrices.map((market) => {
                       // Calculate average price
                       const average =
                         (market.min + market.max) / 2;

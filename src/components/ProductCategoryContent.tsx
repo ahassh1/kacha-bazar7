@@ -1,5 +1,7 @@
-import AllProductCard from "@/components/AllProductCard";
+"use client";
 
+import { useState } from "react";
+import AllProductCard from "@/components/AllProductCard";
 import { IProduct } from "@/types/products";
 
 interface IProps {
@@ -8,6 +10,19 @@ interface IProps {
 
 const ProductCategoryContent = ({ products }: IProps) => {
   const category = products[0];
+
+  const [sortBy, setSortBy] = useState("default"); // Store selected sorting
+
+  // Copy products before sorting
+  const sortedProducts = [...products];
+
+  if (sortBy === "low") {
+    sortedProducts.sort((a, b) => a.today - b.today); // Sort lowest price
+  }
+
+  if (sortBy === "high") {
+    sortedProducts.sort((a, b) => b.today - a.today); // Sort highest price
+  }
 
   return (
     <div className="min-h-screen">
@@ -56,7 +71,8 @@ const ProductCategoryContent = ({ products }: IProps) => {
               </legend>
 
               <select
-                defaultValue="default"
+                value={sortBy}
+                onChange={(event) => setSortBy(event.target.value)} // Update selected sorting
                 className="select select-bordered w-full rounded-lg border-gray-200 bg-white focus:border-green-500 focus:outline-none"
               >
                 <option value="default">ডিফল্ট</option>
@@ -68,8 +84,8 @@ const ProductCategoryContent = ({ products }: IProps) => {
         </div>
 
         {/* All Product Cards */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 cursor-pointer">
-          {products.map((product) => (
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {sortedProducts.map((product) => (
             <AllProductCard key={product.id} show={product} />
           ))}
         </div>
