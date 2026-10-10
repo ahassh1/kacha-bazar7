@@ -19,8 +19,8 @@ interface IMarqueeItem {
 const Marquee = async () => {
   const res = await fetch(
     "https://api.abcz.workers.dev/api/bazardor/products",
-      {
-      next: { revalidate: 3600 }, 
+    {
+      next: { revalidate: 3600 },
     }
   );
 
@@ -32,25 +32,25 @@ const Marquee = async () => {
   const marqueeItem: IMarqueeItem[] = await res.json();
 
   return (
-    <div className="mt-2 w-full overflow-hidden bg-sky-50 py-1 shadow-sm">
+    <div className="w-full overflow-hidden border-y border-emerald-100 bg-linear-to-r from-green-50 via-white to-emerald-50 py-1.5 shadow-sm">
       <div className="overflow-hidden text-xs sm:text-sm">
         <MarqueeText
-          duration={15}
+          duration={13}
           direction="right"
           className="hover:[animation-play-state:paused]"
         >
           {marqueeItem.map((item) => (
             <div
               key={item.id}
-              className="mx-1.5 inline-flex shrink-0 items-center gap-1.5 rounded-md bg-white px-2 py-1 sm:mx-2 sm:gap-2"
+              className="mx-1.5 inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-emerald-100/80 bg-linear-to-r from-white to-green-50 px-2.5 py-1.5 shadow-sm transition hover:border-green-200 hover:shadow-md sm:mx-2 sm:gap-2"
             >
               <span>{item.categoryIcon}</span>
 
-              <span className="font-medium text-gray-800">
+              <span className="font-medium text-gray-700">
                 {item.nameBn}
               </span>
 
-              <span className="font-bold text-gray-900">
+              <span className="font-bold text-emerald-800">
                 ৳{item.today}
               </span>
 

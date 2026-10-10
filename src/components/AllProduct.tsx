@@ -2,7 +2,7 @@ import { IProductType } from "@/types/products";
 import AllProductCard from "./AllProductCard";
 const AllProduct = ({ products }: IProductType) => {
   return (
-    <section className="px-4 py-6">
+    <section id="all-product" className="px-4 py-6">
       <div className="mb-5">
         <h1 className="text-xl font-bold text-gray-900 md:text-2xl">
           সব পণ্য

@@ -3,8 +3,7 @@ import AllProductCard from "./AllProductCard";
 
 const PriceDecrease = ({ products }: IProductType) => {
   const decreasedProducts = products.filter(
-    (product) => product.yesterday > product.today  //filter + slice
-  ).slice(0,6);
+    (product) => product.change.dir === "down").sort((a,b)=> b.change.pct - a.change.pct).slice(0,6);  //filter + sort + slice
 
   return (
     <section className="px-4 py-6 cursor-pointer">

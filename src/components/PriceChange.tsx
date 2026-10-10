@@ -19,7 +19,8 @@ const PriceChange = ({ today, yesterday }: IPriceChangeProps) => {
             : "text-gray-500"
       }`}
     >
-      {isUp ? "▲" : isDown ? "▼" : "—"} {Math.abs(change).toFixed(1)}%
+      {/* conditional rendering + tofixed+ math.abs */}
+      {isUp ? "▲" : isDown ? "▼" : "—"} {Math.abs(change).toFixed(1)}%  
     </span>
   );
 };
