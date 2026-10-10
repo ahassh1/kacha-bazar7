@@ -20,7 +20,7 @@ const PriceChange = ({ today, yesterday }: IPriceChangeProps) => {
       }`}
     >
       {/* conditional rendering + tofixed+ math.abs */}
-      {isUp ? "▲" : isDown ? "▼" : "—"} {Math.abs(change).toFixed(1)}%  
+          {isUp ? "▲" : isDown ? "▼" : "—"} {Math.abs(change).toLocaleString("bn-BD", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%      
     </span>
   );
 };

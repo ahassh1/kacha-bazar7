@@ -23,12 +23,10 @@ const Marquee = async () => {
       next: { revalidate: 3600 },
     }
   );
-
-  // Check API response
+// Check API response
   if (!res.ok) {
     throw new Error("Failed to fetch products");
   }
-
   const marqueeItem: IMarqueeItem[] = await res.json();
 
   return (
@@ -51,7 +49,7 @@ const Marquee = async () => {
               </span>
 
               <span className="font-bold text-emerald-800">
-                ৳{item.today}
+                ৳{item.today.toLocaleString("bn-BD")}
               </span>
 
               <span className="text-gray-500">

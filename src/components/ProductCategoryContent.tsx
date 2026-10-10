@@ -1,7 +1,3 @@
-// "use client";
-
-// import { useState } from "react";
-
 import AllProductCard from "@/components/AllProductCard";
 
 import { IProduct } from "@/types/products";
@@ -14,7 +10,7 @@ const ProductCategoryContent = ({ products }: IProps) => {
   const category = products[0];
 
   return (
-    <div className="min-h-screen bg-gray-50/80">
+    <div className="min-h-screen">
       <div className="container mx-auto px-4 py-6 sm:py-8">
         {/* Category Header */}
         <div className="mb-6 overflow-hidden rounded-2xl border border-green-100 bg-linear-to-r from-green-50 via-white to-emerald-50 p-5 shadow-sm sm:p-8">
@@ -34,7 +30,7 @@ const ProductCategoryContent = ({ products }: IProps) => {
 
               <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
                 <span className="h-2 w-2 rounded-full bg-green-500" />
-                {products.length} টি পণ্য
+                {products.length.toLocaleString("bn-BD")} টি পণ্য
               </div>
             </div>
           </div>
@@ -72,7 +68,7 @@ const ProductCategoryContent = ({ products }: IProps) => {
         </div>
 
         {/* All Product Cards */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 cursor-pointer">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 cursor-pointer">
           {products.map((product) => (
             <AllProductCard key={product.id} show={product} />
           ))}

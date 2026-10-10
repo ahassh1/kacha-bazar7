@@ -1,5 +1,6 @@
 import type { IProduct } from "@/types/products";
 import PriceChange from "./PriceChange";
+import Link from "next/link";
 
 interface IProps {
   show: IProduct;
@@ -7,7 +8,7 @@ interface IProps {
 
 const AllProductCard = ({ show }: IProps) => {
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-md">
+    <Link href={`/product/${show.id}`} className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-md">
       <div className="mb-4 flex items-center gap-3">
         <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-green-50 text-2xl">
           {show.categoryIcon}
@@ -39,7 +40,7 @@ const AllProductCard = ({ show }: IProps) => {
           />
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

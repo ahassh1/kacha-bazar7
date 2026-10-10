@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-   <footer className="relative mt-16 overflow-hidden bg-linear-to-br from-green-100 via-emerald-50 to-white text-slate-800">
+   <footer className="relative mt-10 overflow-hidden bg-linear-to-br from-green-100 via-emerald-50 to-white text-slate-800">
       {/* Decorative Wave */}
       <div className="absolute left-0 top-0 w-full overflow-hidden leading-none">
         <svg

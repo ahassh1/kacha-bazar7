@@ -6,7 +6,7 @@ export default function Home() {
         <Banner/>
        <div className="mx-auto container"> 
          <AllProductApi/>
-       </div>
+  </div>
     </div>
   );
 }

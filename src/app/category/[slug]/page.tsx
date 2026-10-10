@@ -1,8 +1,5 @@
 import ProductCategoryContent from "@/components/ProductCategoryContent";
 import { IProps } from "@/types/products";
-
-
-
 const ProductCategory = async ({ params }: IProps) => {
   const { slug } = await params;
 

@@ -1,11 +1,11 @@
 export interface IProps {
   params: Promise<{
     slug: string;
+    productId: string
   }>;
 }
 
 export interface IProduct {
-  length: number
   id: number;
   slug: string;
   nameBn: string;
@@ -22,6 +22,12 @@ export interface IProduct {
     dir: string;
     pct: number;
   };
+  markets: {
+    market: string;
+    division: string;
+    min: number;
+    max: number;
+  }[];
 }
 
 export interface IProductType {
