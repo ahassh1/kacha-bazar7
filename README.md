@@ -1,112 +1,140 @@
+
+# 🛒 বাজার দর | BazarDor
+
+### বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের বাজারদর এক জায়গায়
+
+**BazarDor** is a Bengali-language web application that helps users explore the latest available prices of everyday products, check price changes over time, and compare prices across different markets. It is designed to make market price information easier to access through a clean, responsive, and user-friendly interface.
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-App%20Router-black?logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/TypeScript-Strict%20Typing-blue?logo=typescript" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-Styling-38B2AC?logo=tailwindcss" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Language-Bengali-green" alt="Bengali Language" />
+</p>
+
+---
+
+## ✨ Key Features
+
+### 1. 📦 Product Categories
+
+Browse everyday products by category with Bengali category names, icons, and product counts for easy navigation.
+
+### 2. 💰 Current & Historical Prices
+
+View today's prices alongside previous prices, including yesterday, last week, and last month, to understand how product prices change over time.
+
+### 3. 📊 Market Price Comparison
+
+Explore market-wise minimum and maximum prices and view average-price summaries to compare the available market data.
+
+### 4. 🔃 Smart Price Sorting
+
+Sort products by price from lowest to highest or highest to lowest, making it easier to find products based on their current prices.
+
+### 5. 📱 Responsive User Interface
+
+Access product cards, price summaries, and market information through a responsive layout designed for mobile, tablet, and desktop screens.
+
+### 6. Use Authenticeation for user
+
+Use betterauth for authentication and mongodb for data store. 
+
+---
+
+## 📂 Project Structure
+
+The following shows the main files and folders used in the project. The `app` route filenames are illustrative; keep your existing route names if they differ.
+
+```text
+bazar-dor/
+├── public/
+│   └── images/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx
+│   │   ├── category/
+│   │   │   └── [slug]/
+│   │   │       └── page.tsx
+│   │   └── product/
+│   │       └── [productId]/
+│   │           └── page.tsx
+│   ├── components/
+│   │   ├── AllProductApi.tsx
+│   │   ├── AllProductCard.tsx
+│   │   ├── ProductDetailsPage.tsx
+│   │   ├── Banner.tsx
+│   │   ├── PriceChange.tsx
+│   │   └── Footer.tsx
+│   └── types/
+│       └── products.ts
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+└── README.md
+```
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| [Next.js](https://nextjs.org/) | Application framework, routing, and server-side rendering |
+| [React](https://react.dev/) | Reusable components and user interface |
+| [TypeScript](https://www.typescriptlang.org/) | Type-safe data structures and component props |
+| [Tailwind CSS](https://tailwindcss.com/) | Responsive styling and layout |
+| REST API | Fetching product, category, and market-price data |
+| Next.js Image | Optimized product image rendering |
+| Betterauth and mongodb and heroUi also.
+
+---
+
+> **Note:** The component and type filenames above reflect the project files discussed during development. The route paths and `public/images/` directory are illustrative, not a verified listing of every file in the repository.
+
+---
+
+## 🔌 API Integration
+
+BazarDor retrieves product and category information from a REST API.
+
+**API Base URL:**
+
+```text
+https://api.abcz.workers.dev/api/bazardor
+```
+
+The application uses API data to display product details, category information, current prices, historical prices, and market-wise price ranges.
+
+Product data includes fields such as:
+
+- `nameBn` — Bengali product name
+- `categoryNameBn` — Bengali category name
+- `today` — Current price
+- `yesterday` — Previous day's price
+- `lastWeek` — Price from the previous week
+- `lastMonth` — Price from the previous month
+- `markets` — Market names, divisions, and minimum/maximum prices
+
+The application also uses Next.js data revalidation to refresh cached API data periodically.
+
+---
+
+## 🎯 Project Goal
+
+The goal of BazarDor is to make everyday market-price information more accessible to people in Bangladesh through a simple, informative, and Bengali-friendly digital experience.
+
+---
+
+## 👨‍💻 Developer
+
+Built by ahassh ❤️ using Next.js, React, TypeScript, betterauth, heroui, mongodb and Tailwind CSS.
+
+**বাজার দর — বাজারের দাম জানুন, সচেতন সিদ্ধান্ত নিন।**
+
+
 # API's
 
 ## BASE_URL_1: https://api.api-store.workers.dev/api/bazardor
 ## BASE_URL_2: https://api.abcz.workers.dev/api/bazardor (alternative)
-
-Endpoints:  
-**All Products:**
-```
-/products
-```
-
-**Filter:**
-```
-/products?category=chal
-```    
-**Single Product:**
-```
-/products/1
-```
-
-**Categories:**
-```
-/categories
-```    
-
-**Single Category:**
-```
-/categories/chal
-```
-
----
-
-## 🐣 Basic Requirements (Must Do for Everyone)
-- Your app must work on all screen sizes — mobile, tablet, and desktop
-- Make at least 8 Git commits with clear, meaningful messages
-- Your app must run without any errors after deployment
-- Add a nice README.md file with your project name, description, technologies used, and features(minimum 5)
-
----
-
-# 🔧 Main Requirements — 50 Marks
-
-
-### 1. 🔝 Navbar
-
-- Design the Navbar exactly like the Figma.
-- Put your logo on the left side: `🛒 বাজার দর` + Bangla date underneath.
-- Put your navigation links in a second row / middle — category links.
-- The active category link should look different (highlighted).
-- **Right-side auth buttons**: `সাইন ইন` + `সাইন আপ`. When logged in, show profile / sign-out instead.
-- **Price ticker (marquee) below navbar**: infinite scrolling strip showing `emoji + name + দাম টাকা/একক + ▲/▼ %` 
-
----
-
-### 2. 🅱️ Hero / Banner
-
-- Eyebrow / small text
-- Main heading
-- Subtitle
-- A primary **CTA button**
-  - It scrolls the user down to the `#সব-পণ্য` section on the same page (an anchor link, not a route change).
-- A **banner/hero image** on the right side..
-
-
----
-
-### 3. ⚖️ The Product Sections (Home Page)
-
-- **Section A — “আজ দাম বেড়েছে ▲”**: Top 6 risers. 
-- **Section B — “আজ দাম কমেছে ▼”**: Top 6 fallers. 
-- **Section C — “সব পণ্য” with subtitle** .
-- Display all products from JSON data as cards in a **responsive grid** (3-4 cols on large screens, collapses on mobile). Must be responsive.
-- Each card must show:
-  - 📷 Emoji / illustration (e.g. `🍚 🫘 🫙 🥔 🧅 🌶️ 🐟 🍗 🥚 🫚 🧄`)
-  - 📛 Product name (e.g. “স্বর্ণমাছি চাল”, “মিনিকেট চাল”, “ইলিশ মাছ”, “পেঁয়াজ”)
-  - 🖇️ Unit line (e.g. `প্রতি কেজি`, `প্রতি লিটার`, `প্রতি ডজন`, `প্রতি পিস`)
-  - 🔴 Price row: label `আজকের দাম` + value (e.g. `১৪৮ টাকা`, `১,৮৫০ টাকা` — Bengali digits) + change badge `▲ ২.১% / ▼ ২.৯% / —০.০%` (green up, red down, gray flat)
-- 🧭 Clicking a card navigates the user to that product’s **Detail Page**.
-
----
-
-### 4. Product Details Page — Layout (`/product/[slug]`)
-
-**Protected route — requires login.**
-
-**Top — Summary:**
-- Emoji + Title
-- Subtitle/description (market summary line)
-- Category tags (e.g. `সবজি`, `চাল`)
-- Unit (`প্রতি কেজি / লিটার / ডজন / পিস`)
-
-
-**Price - Summary** 
-- Minimum Price
-- Maximum Price 
-- Average Price 
-
-
-**বাজারভিত্তিক আজকের দাম** 
-- Show all the data like figma based on different Bazar. You can do this section Design like figma or as you want. 
-
-
-### 5. Category Page
-- Title + icon 
-- **Sort control**: `সাজান: ডিফল্ট | দাম: কম থেকে বেশি | দাম: বেশি থেকে কম` (see C1).
-- **Loading state**: show skeleton / “Loading…” while fetching before the list renders.
-- **Product cards list**: same card design as Home (thumbnail emoji, title e.g. “আলু”, “পেঁয়াজ”, “ঢেঁড়স”, unit e.g. “প্রতি কেজি”, price + change badge).
-- **Empty state** (when category has no items / invalid slug): 404-style message + CTA button **“হোম পেজে ফিরে যান”** (links back to `/`).
-
 
 ### 6. Authentication (`/signin`, `/signup`)
 
@@ -131,16 +159,6 @@ Endpoints:
 - Show relevant **toast notification** on login / signup / logout / validation error.
 -  💡Don’t implement email verification or forget password method as it will inconvenience the examiner. If you want, you can add these after receiving the assignment result.
 
---- 
-
-### 7. Footer
-- Match the Figma.
-- **Left**: `বাজার দর — প্রয়োজনীয় পণ্যের দাম এক নজরে।`
-- **Right**: *“সকল দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে পরিবর্তিত হয়।”*
-
-### 8. Responsive Design
-- The entire website must work correctly on mobile, tablet, and desktop screen sizes (grid collapses correctly, navbar + ticker stays usable, hero stacks, `btn-sm sm:btn-md`, `max-w-6xl` container, etc.).
-
 ---
 
 #	Requirement
@@ -151,40 +169,8 @@ Endpoints:
 
 ---
 
-# Challenge Requirements — 10 Marks
-
-### C1. - **Sort dropdown**:
-“সাজান” → options `ডিফল্ট`, `দাম: কম থেকে বেশি`, `দাম: বেশি থেকে কম` (default `ডিফল্ট`, with chevron icon). Must handle Bengali numerals correctly (sort by numeric value, not string).
-
-### C2. GitHub README
-- Add a well-designed `README.md` that includes:
-  - Project name (বাজার দর / BazarDor)
-  - Short description
-  - Technologies used
-  - 5 key features of the project
-
 ### C3. - Update Information Feature
 - In My Profile route there will be an update button. On clicking it,  Take user to another route 
 - Show user a form with an input field (  Name ), An Update Information button.
 
 Follow this documentation: https://better-auth.com/docs/concepts/users-accounts#update-user 
-
-
----
-
-### 🛠️ Technologies to Use
-Technology	Purpose
-- Next.js ->	Build the UI
-- App router(Next.js) +	Handle page navigation
-- Tailwind CSS + Any component library	Styling and responsiveness(DaisyUI, Hero UI)
-- TypeScript / JavaScript
-- BetterAuth
-
-### 🚀 Deployment
-Deploy your project on Vercel, Netlify, Cloudflare Pages, or anywhere else before submitting.
-
-## 📬 Submission
-Fill in both links before submitting:
-
-- Live Link:
-- GitHub Repository Link:

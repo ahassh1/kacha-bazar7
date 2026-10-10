@@ -5,10 +5,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import NavLinks from "@/components/NavLinks";
 import Marquee from "@/components/Marquee";
-
-
-
-
 const notoSerifBengali = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
 });
@@ -21,7 +17,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      // lang="en"
+      lang="bn" data-scroll-behavior="smooth"
       data-theme="light"
        className={`${notoSerifBengali.className} h-full antialiased`}
     >
