@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Suspense } from "react";
 import HeaderDate from "./HeaderDate";
 import Link from "next/link";
+import UserInfo from "./UserInfo";
 
 const Header = () => {
   return (
@@ -30,13 +31,7 @@ const Header = () => {
         </Link>
 
         <div className="flex items-center gap-2.5">
-          <button className="cursor-pointer rounded-lg border border-emerald-200 bg-white/80 px-2.5 py-1 text-xs font-medium text-emerald-800 shadow-sm transition hover:bg-emerald-50 sm:px-3 sm:py-1.5 sm:text-sm">
-            সাইন ইন
-          </button>
-
-          <button className="cursor-pointer rounded-lg bg-linear-to-r from-green-700 to-emerald-600 px-2.5 py-1 text-xs font-semibold text-white shadow-sm shadow-green-200 transition hover:from-green-800 hover:to-emerald-700 sm:px-3 sm:py-1.5 sm:text-sm">
-            সাইন আপ
-          </button>
+          <UserInfo/>
         </div>
       </div>
     </header>
