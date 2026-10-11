@@ -4,10 +4,10 @@ import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 
 const SignUpPage = () => {
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.SubmitEvent<HTMLElement>) => {
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(e.target);
 
     const user = Object.fromEntries(formData.entries()) as {
       name: string;

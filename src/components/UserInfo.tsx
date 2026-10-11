@@ -2,14 +2,11 @@
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
+import ButtonToggle from "./ButtonToggle";
 
 const UserInfo = () => {
   const session = authClient.useSession();    //usesession hook call
   const user = session?.data?.user;
-
-  const handleSignOut = async () => {   //Handle user sign out
-    await authClient.signOut();
-  };
 
   return (
     <div className="flex items-center gap-2 sm:gap-3">
@@ -36,13 +33,7 @@ const UserInfo = () => {
             </p>
             <p className="text-xs text-green-700">ব্যবহারকারী</p>
           </div>
-
-          <button
-            onClick={handleSignOut}
-            className="rounded-lg border border-red-100 bg-red-50 px-2.5 py-1.5 text-xs font-semibold text-red-600 transition hover:bg-red-100 sm:px-3 sm:py-2 sm:text-sm cursor-pointer"
-          >
-            সাইন আউট
-          </button>
+<ButtonToggle/>
         </div>
       ) : (
         <>
