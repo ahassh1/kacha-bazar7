@@ -17,18 +17,21 @@ interface IMarqueeItem {
 }
 
 const Marquee = async () => {
-  const res = await fetch(
-    "https://api.abcz.workers.dev/api/bazardor/products",
-    {
-      next: { revalidate: 3600 },
-    }
-  );
-// Check API response
-  if (!res.ok) {
-    throw new Error("Failed to fetch products");
-  }
-  const marqueeItem: IMarqueeItem[] = await res.json();
+let marqueeItem: IMarqueeItem[] = [];
 
+try {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/bazardor/products`
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch marquee data");
+  }
+
+  marqueeItem = await res.json();
+} catch (error) {
+  console.error("Error fetching marquee data:", error);
+}
   return (
     <div className="w-full overflow-hidden border-y border-emerald-100 bg-linear-to-r from-green-50 via-white to-emerald-50 py-1.5 shadow-sm">
       <div className="overflow-hidden text-xs sm:text-sm">

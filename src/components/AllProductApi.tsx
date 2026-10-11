@@ -4,25 +4,27 @@ import PriceIncrease from "./PriceIncrease";
 import PriceDecrease from "./PriceDecrease";
 
 const AllProductApi = async () => {
-  const res = await fetch(
-    "https://api.abcz.workers.dev/api/bazardor/products",
-    {
-      next: { revalidate: 3600 },
+  let products: IProduct[] = [];
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/bazardor/products`
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch products data");
     }
-  );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch products");
+    products = await res.json();
+  } catch (error) {
+    console.error("Error fetching products data:", error);
   }
-
-  const products: IProduct[] = await res.json();
 
   return (
     <>
-    <PriceIncrease
-     products={products}/>
-     <PriceDecrease products={products}/>
-    <AllProduct products={products} />
+      <PriceIncrease products={products} />
+      <PriceDecrease products={products} />
+      <AllProduct products={products} />
     </>
   );
 };

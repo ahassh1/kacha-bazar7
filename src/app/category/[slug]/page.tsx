@@ -1,27 +1,30 @@
 import ProductCategoryContent from "@/components/ProductCategoryContent";
 import { IProps } from "@/types/products";
+
 const ProductCategory = async ({ params }: IProps) => {
   const { slug } = await params;
 
-  const res = await fetch(
-    `https://api.abcz.workers.dev/api/bazardor/products?category=${slug}`,
-    {
-      next: { revalidate: 3600 },
+  let productData = [];
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/bazardor/products?category=${slug}`
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch products data");
     }
-  );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch products");
+    productData = await res.json();
+  } catch (error) {
+    console.error("Error fetching products data:", error);
   }
-
-  const productData = await res.json();
 
   return (
     <div>
-        <ProductCategoryContent products={productData}/>
+      <ProductCategoryContent products={productData} />
     </div>
   );
 };
-export const instant = false;
 
 export default ProductCategory;

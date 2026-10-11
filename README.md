@@ -99,7 +99,7 @@ BazarDor retrieves product and category information from a REST API.
 **API Base URL:**
 
 ```text
-https://api.abcz.workers.dev/api/bazardor
+https://openapi.programming-hero.com/api/bazardor
 ```
 
 The application uses API data to display product details, category information, current prices, historical prices, and market-wise price ranges.
@@ -114,7 +114,6 @@ Product data includes fields such as:
 - `lastMonth` — Price from the previous month
 - `markets` — Market names, divisions, and minimum/maximum prices
 
-The application also uses Next.js data revalidation to refresh cached API data periodically.
 
 ---
 
@@ -133,7 +132,7 @@ Built by ahassh ❤️ using Next.js, React, TypeScript, betterauth, heroui, mon
 
 # API's
 
-## BASE_URL_1: https://api.api-store.workers.dev/api/bazardor
+## BASE_URL_1: https://openapi.programming-hero.com/api/bazardor
 ## BASE_URL_2: https://api.abcz.workers.dev/api/bazardor (alternative)
 
 ### 6. Authentication (`/signin`, `/signup`)

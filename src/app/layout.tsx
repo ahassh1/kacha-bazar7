@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Noto_Serif_Bengali  } from "next/font/google";
+import { Noto_Serif_Bengali } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import NavLinks from "@/components/NavLinks";
 import Marquee from "@/components/Marquee";
- import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
+
 const notoSerifBengali = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
 });
@@ -15,24 +17,34 @@ export const metadata: Metadata = {
   description: "Kacha bazar is here you can buy any things",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: LayoutProps<"/">) {
   return (
     <html
-      // lang="en"
-      lang="bn" data-scroll-behavior="smooth"
+      lang="bn"
+      data-scroll-behavior="smooth"
       data-theme="light"
-       className={`${notoSerifBengali.className} h-full antialiased`}
+      className={`${notoSerifBengali.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <div className="sticky top-0 z-50 "> 
-        <Header/>
-      <NavLinks/>
-      </div>
-        <Marquee/>
+        <div className="sticky top-0 z-50">
+          <Header />
+
+          <Suspense fallback={<div className="h-12" />}>
+            <NavLinks />
+          </Suspense>
+        </div>
+
+        <Suspense fallback={<div className="h-8" />}>
+          <Marquee />
+        </Suspense>
+
         {children}
-          <Footer/>
-            <ToastContainer/>
-        </body>
+
+        <Footer />
+        <ToastContainer />
+      </body>
     </html>
   );
 }

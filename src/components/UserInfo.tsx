@@ -3,12 +3,11 @@ import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonToggle from "./ButtonToggle";
-
 const UserInfo = () => {
   const session = authClient.useSession();    //usesession hook call
   const user = session?.data?.user;
 
-  return (
+  return ( 
     <div className="flex items-center gap-2 sm:gap-3">
       {user ? (
         <div className="flex items-center gap-2 rounded-xl border border-green-100 bg-white p-2 shadow-sm sm:gap-3 sm:px-3">

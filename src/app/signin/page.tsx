@@ -40,7 +40,6 @@ const SignInPage = () => {
       provider: "github", // provider use
     });
   };
-
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-3 bg-white px-4 py-6">
       <form

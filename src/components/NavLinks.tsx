@@ -7,16 +7,21 @@ interface IBazarCategory {
   icon: string;
 }
 const NavLinks = async () => {
+let bazarCategory: IBazarCategory[] = [];
+
+try {
   const res = await fetch(
-    "https://api.abcz.workers.dev/api/bazardor/categories",
-    {
-      next: { revalidate: 3600 }, 
-    }
+    `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/bazardor/categories`
   );
+
   if (!res.ok) {
-    throw new Error("Failed to fetch categories");
+    throw new Error("Failed to fetch categories data");
   }
-  const bazarCategory: IBazarCategory[] = await res.json();
+
+  bazarCategory = await res.json();
+} catch (error) {
+  console.error("Error fetching categories data:", error);
+}
 
   return (
     <div className="w-full bg-white shadow-sm">
