@@ -19,7 +19,9 @@ const UserInfo = () => {
           <div className="avatar">
             <div className="w-9 rounded-full ring-2 ring-green-500 ring-offset-2 sm:w-11">
               {user.image ? (
-                <Image src={user?.image} alt={user?.name} />
+                <Image  src={user?.image} alt={user?.name}  width={44}
+  height={44}
+  className="rounded-full"/>
               ) : (
                 <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-green-600 to-emerald-700 text-sm font-bold text-white">
                   {user.name?.charAt(0).toUpperCase()}
