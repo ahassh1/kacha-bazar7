@@ -1,5 +1,4 @@
 'use client'
-
 import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
@@ -9,8 +8,6 @@ const SignUpPage =  () => {
         e.preventDefault()
  const formData = new FormData(e.target)
  const user = Object.fromEntries(formData.entries()) as {name:string, imageUrl:string, email: string, password: string}
- console.log(user);
- 
  const {data, error} = await authClient.signUp.email({
       ...user,
       callbackURL:"/"

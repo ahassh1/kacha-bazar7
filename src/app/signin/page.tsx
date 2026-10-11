@@ -1,9 +1,30 @@
+'use client'
+import { authClient } from "@/lib/auth-client";
+import { redirect } from "next/navigation";
+import { toast } from "react-toastify";
+
 const SignInPage = () => {
+  const onSubmit = async(e: React.SubmitEvent<HTMLElement>)=>{
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    const user = Object.fromEntries(formData.entries()) as{password:"string", email:"string"}
+     const { data, error } = await authClient.signIn.email({
+    ...user,
+    callbackURL: "/",
+  });
+       if(data){
+         toast.success('user added successfully')
+         redirect("/")
+       }
+       if(error){
+        toast.error('user already added')
+       } 
+  }
   return (
    <div className="flex min-h-screen items-center justify-center bg-white px-4 py-10">
-  <form className="w-full max-w-md rounded-2xl border border-green-100 bg-gradient-to-br from-green-50 via-white to-emerald-100 p-6 shadow-xl sm:p-8">   
+  <form onSubmit={onSubmit} className="w-full max-w-md rounded-2xl border border-green-100 bg-linear-to-br from-green-50 via-white to-emerald-100 p-6 shadow-xl sm:p-8">   
         <div className="mb-7 text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-emerald-700 text-3xl text-white shadow-lg">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-green-500 to-emerald-700 text-3xl text-white shadow-lg">
             🛒
           </div>
 
@@ -46,7 +67,7 @@ const SignInPage = () => {
 
         <button
           type="submit"
-          className="btn w-full rounded-xl border-0 bg-gradient-to-r from-green-600 to-emerald-700 text-base text-white shadow-md transition hover:from-green-700 hover:to-emerald-800"
+          className="btn w-full rounded-xl border-0 bg-linear-to-r from-green-600 to-emerald-700 text-base text-white shadow-md transition hover:from-green-700 hover:to-emerald-800"
         >
           সাইন ইন করুন
         </button>
