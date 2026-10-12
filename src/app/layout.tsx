@@ -22,7 +22,7 @@ export default function RootLayout({
 }: LayoutProps<"/">) {
   return (
     <html
-      lang="bn"
+      lang="en"
       data-scroll-behavior="smooth"
       data-theme="light"
       className={`${notoSerifBengali.className} h-full antialiased`}
