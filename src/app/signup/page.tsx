@@ -11,7 +11,6 @@ const SignUpPage = () => {
 
     const user = Object.fromEntries(formData.entries()) as {
       name: string;
-      imageUrl: string;
       email: string;
       password: string;
     };
@@ -77,18 +76,7 @@ const SignUpPage = () => {
           />
         </fieldset>
 
-        <fieldset className="fieldset mb-3">
-          <legend className="fieldset-legend text-gray-700">
-            প্রোফাইল ছবির URL
-          </legend>
-
-          <input
-            name="imageUrl"
-            type="url"
-            className="input w-full rounded-xl border-gray-200 bg-gray-50 focus:border-green-500 focus:outline-none"
-            placeholder="https://example.com/image.jpg"
-          />
-        </fieldset>
+      
 
         <fieldset className="fieldset mb-3">
           <legend className="fieldset-legend text-gray-700">
@@ -115,6 +103,18 @@ const SignUpPage = () => {
             className="input w-full rounded-xl border-gray-200 bg-gray-50 focus:border-green-500 focus:outline-none"
             placeholder="একটি পাসওয়ার্ড দিন"
             required
+          />
+        </fieldset>
+          <fieldset className="fieldset mb-3">
+          <legend className="fieldset-legend text-gray-700">
+            confirm your password
+          </legend>
+
+          <input
+            name="password"
+            type="password"
+            className="input w-full rounded-xl border-gray-200 bg-gray-50 focus:border-green-500 focus:outline-none"
+            placeholder="confirm password"
           />
         </fieldset>
 
