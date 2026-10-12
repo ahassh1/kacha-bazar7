@@ -13,7 +13,7 @@ const ButtonToggle = () => {
                <div className="relative">
   <button
     onClick={() => setIsOpen(!isOpen)}   //true
-    className="flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 sm:px-4"
+    className="flex cursor-pointer items-center gap-1 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 sm:px-4"
   >
     <span>আমার অ্যাকাউন্ট</span>
     <ChevronDown

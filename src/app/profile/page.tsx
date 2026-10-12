@@ -1,13 +1,12 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 const ProfilePage = () => {
 
   // Update profile information
   const onSubmit = async (e: React.SubmitEvent<HTMLElement>) => {
     e.preventDefault();
-
     const formData = new FormData(e.target);
 
     const userUpdate = Object.fromEntries(formData.entries()) as {

@@ -14,12 +14,11 @@ const AllProduct = ({ products }: IProductType) => {
       </div>
 
       <div className="grid grid-cols-1 cursor-pointer gap-6 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
-        {products.map((show) => (
-         <AllProductCard key={show.id} show={show}/>
-        ))}
-      </div>
+  {products.map((show) => (
+    <AllProductCard key={show.id} show={show} />
+  ))}
+</div>
     </section>
   );
 };
-
 export default AllProduct;
