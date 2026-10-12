@@ -1,3 +1,4 @@
+import { cacheLife } from "next/cache";
 import Link from "next/link";
 
 interface IBazarCategory {
@@ -7,6 +8,8 @@ interface IBazarCategory {
   icon: string;
 }
 const NavLinks = async () => {
+    "use cache";
+  cacheLife("hours");
 let bazarCategory: IBazarCategory[] = [];
 
 try {

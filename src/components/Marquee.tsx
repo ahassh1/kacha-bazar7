@@ -1,5 +1,6 @@
 import MarqueeText from "react-marquee-text";
 import PriceChange from "./PriceChange";
+import { cacheLife } from "next/cache";
 
 interface IMarqueeItem {
   id: number;
@@ -17,6 +18,8 @@ interface IMarqueeItem {
 }
 
 const Marquee = async () => {
+  "use cache";
+  cacheLife("minutes");
 let marqueeItem: IMarqueeItem[] = [];
 
 try {

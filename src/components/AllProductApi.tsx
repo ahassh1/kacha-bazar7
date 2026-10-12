@@ -1,9 +1,14 @@
+
 import type { IProduct } from "@/types/products";
 import AllProduct from "./AllProduct";
 import PriceIncrease from "./PriceIncrease";
 import PriceDecrease from "./PriceDecrease";
+import { cacheLife } from "next/cache";
 
 const AllProductApi = async () => {
+  "use cache";
+  cacheLife("minutes");
+
   let products: IProduct[] = [];
 
   try {
