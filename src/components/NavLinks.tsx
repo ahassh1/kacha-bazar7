@@ -11,10 +11,10 @@ const NavLinks = async () => {
     "use cache";
   cacheLife("hours");
 let bazarCategory: IBazarCategory[] = [];
-
 try {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/bazardor/categories`
+
   );
 
   if (!res.ok) {
