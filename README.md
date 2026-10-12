@@ -1,9 +1,9 @@
 
-# 🛒 বাজার দর | BazarDor
+# 🛒   কাঁচা বাজার
 
 ### বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের বাজারদর এক জায়গায়
 
-**BazarDor** is a Bengali-language web application that helps users explore the latest available prices of everyday products, check price changes over time, and compare prices across different markets. It is designed to make market price information easier to access through a clean, responsive, and user-friendly interface.
+**BazarDor** is a Bengali-language web application that helps users explore the latest available prices of everyday products, check price changes over time, and that compare prices across different markets. It is designed to make market price information easier to access through a clean, responsive, and user-friendly interface
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-App%20Router-black?logo=next.js" alt="Next.js" />
@@ -18,7 +18,7 @@
 
 ### 1. 📦 Product Categories
 
-Browse everyday products by category with Bengali category names, icons, and product counts for easy navigation.
+Any person can buy their own product everyday products by category with Bengali category names, icons, and product counts for easy navigation.
 
 ### 2. 💰 Current & Historical Prices
 
@@ -134,42 +134,3 @@ Built by ahassh ❤️ using Next.js, React, TypeScript, betterauth, heroui, mon
 
 ## BASE_URL_1: https://openapi.programming-hero.com/api/bazardor
 ## BASE_URL_2: https://api.abcz.workers.dev/api/bazardor (alternative)
-
-### 6. Authentication (`/signin`, `/signup`)
-
-- **Sign In**: User Login: The user will  show  a Login page with a form , so that the user can Log in this application. 
-    - Show a Title for Login.  & Form with following fields ( Email , Password , Login button ) 
-    - If the user Login successfully then navigate him to his Home page. If not, show him an error with toast / error message anywhere in the form.
-
-    - There will be some other options like:
-        - Show the user a Link for Register  so that he can go to the register page. 
-        - Show users a Social Login Button ( Google/GitHub/any other social login ) . on Clicking it user authenticate with Google Navigate him to  his Home page.
-- **Sign Up**: User Registration: Create a register page with a form , so that the user can register himself in this application. 
-    - Show a Title for registration and a Form with following fields( Name , Email, Password & Register Button ) 
-    - If the user Register successfully then navigate him to his login page.
-    - If not, show him an error with toast / error message anywhere in the form.
-
-
-    - There will be some other options like 
-        - Show the user a Link for Login so that he can go to the Login page. 
-        - Show users a Social Login Button ( Google/GitHub/any other social login ) . on Clicking it user authenticate with Google Navigate the user to the Home page.
-
-- Use **BetterAuth** (email/password + Google + GitHub), toast on success/error, skeleton loaders.
-- Show relevant **toast notification** on login / signup / logout / validation error.
--  💡Don’t implement email verification or forget password method as it will inconvenience the examiner. If you want, you can add these after receiving the assignment result.
-
----
-
-#	Requirement
-- Add a 404 Page for any unknown/invalid route (e.g. `/category/invalid`, `/product/unknown` → friendly  404 + “হোম পেজে ফিরে যান”)
-- Show a loading animation ( `skeleton`) while the product data is being fetched on the Home / Category page
-- Show a relevant toast notification for auth + protected-route redirects (use `react-hot-toast` / `data-rht-toaster`).
-- Make sure reloading any page after deployment does not cause an error (dynamic `[slug]` routes must work on Vercel — no hard 404 on refresh)
-
----
-
-### C3. - Update Information Feature
-- In My Profile route there will be an update button. On clicking it,  Take user to another route 
-- Show user a form with an input field (  Name ), An Update Information button.
-
-Follow this documentation: https://better-auth.com/docs/concepts/users-accounts#update-user 
