@@ -1,7 +1,8 @@
 import ProductCategoryContent from "@/components/ProductCategoryContent";
 import { IProps } from "@/types/products";
+import { Suspense } from "react";
 
-const ProductCategory = async ({ params }: IProps) => {
+const ProductCategoryContentApi = async ({ params }: IProps) => {
   const { slug } = await params;
 
   let productData = [];
@@ -20,9 +21,15 @@ const ProductCategory = async ({ params }: IProps) => {
     console.error("Error fetching products data:", error);
   }
 
+  return <ProductCategoryContent products={productData} />;
+};
+
+const ProductCategory = ({ params }: IProps) => {
   return (
     <div>
-      <ProductCategoryContent products={productData} />
+      <Suspense fallback={<p>পণ্যের তথ্য লোড হচ্ছে...</p>}>
+        <ProductCategoryContentApi params={params} />
+      </Suspense>
     </div>
   );
 };

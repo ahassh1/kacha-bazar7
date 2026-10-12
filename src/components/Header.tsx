@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import HeaderDate from "./HeaderDate";
 import Link from "next/link";
 import UserInfo from "./UserInfo";
+import logoImg from "@/assets/logo-icon.png"
 
 const Header = () => {
   return (
@@ -10,7 +11,7 @@ const Header = () => {
       <div className="container mx-auto flex min-h-14 items-center justify-between px-3 py-1.5 sm:px-4">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/logo-icon.png"
+            src={logoImg}
             alt="Logo"
             width={34}
             height={34}

@@ -10,15 +10,14 @@ const Loading = () => {
                 <div className="absolute inset-0 animate-spin rounded-full border-4 border-gray-700 border-t-[#C2F800]"></div>
 
                 <div className="absolute h-20 w-20 animate-pulse rounded-full bg-[#C2F800]/10"></div>
-
-                <Image
-                    src={loadingImg}
-                    alt="লোড হচ্ছে"
-                    width={100}
-                    height={120}
-                    priority
-                    className="relative z-10 object-contain"
-                />
+<Image
+  src={loadingImg}
+  alt="লোড হচ্ছে"
+  width={100}
+  height={120}
+  priority
+  className="relative z-10 w-auto object-contain"
+/>
             </div>
 
             <h1 className="mt-6 text-xl font-bold text-white">

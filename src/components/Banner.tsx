@@ -1,14 +1,15 @@
 "use client"
+import HeaderDate from "@/components/HeaderDate";
 import Image from "next/image";
-import HeaderDate from "./HeaderDate";
 import { Suspense } from "react";
+import bannerImg from "@/assets/bazar-hero.png"
 
 const Banner = () => {
    const handleScroll = () => {   //handle button click
    // Find the All Products section by its ID
 document.getElementById("all-product")?.scrollIntoView({
   behavior: "smooth",
-  block: "start",
+  block: "start"
 });
   }
   return (
@@ -26,7 +27,7 @@ document.getElementById("all-product")?.scrollIntoView({
                 <p className="text-[13px] text-gray-500">...</p>
               }
             >
-              <HeaderDate />
+              <HeaderDate/>
             </Suspense>
 
             <h1 className="text-2xl font-extrabold leading-snug text-gray-900 sm:text-3xl lg:text-4xl">
@@ -61,7 +62,7 @@ document.getElementById("all-product")?.scrollIntoView({
           <div className="w-full md:w-1/2">
             <div className="mx-auto max-w-xs rounded-3xl bg-linear-to-br from-white/70 to-green-100/60 p-3 sm:max-w-sm md:max-w-md">
               <Image
-                src="/bazar-hero.png"
+                src={bannerImg}
                 width={500}
                 height={500}
                 alt="বাজারের পণ্যের ছবি"

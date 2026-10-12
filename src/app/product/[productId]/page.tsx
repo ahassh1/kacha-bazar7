@@ -1,7 +1,8 @@
 import ProductDetailsPage from "@/components/ProductDetailsPage";
 import { IProps } from "@/types/products";
+import { Suspense } from "react";
 
-const ProductDetails = async ({ params }: IProps) => {
+const ProductDetailsContent = async ({ params }: IProps) => {
   const { productId } = await params;
 
   let categoryData = null;
@@ -20,9 +21,15 @@ const ProductDetails = async ({ params }: IProps) => {
     console.error("Error fetching products data:", error);
   }
 
+  return <ProductDetailsPage productCategory={categoryData} />;
+};
+
+const ProductDetails = ({ params }: IProps) => {
   return (
     <div>
-      <ProductDetailsPage productCategory={categoryData} />
+      <Suspense fallback={<p>পণ্যের তথ্য লোড হচ্ছে...</p>}>
+        <ProductDetailsContent params={params} />
+      </Suspense>
     </div>
   );
 };
